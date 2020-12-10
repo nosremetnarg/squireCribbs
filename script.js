@@ -23,8 +23,7 @@ const songs = [
   '08 Traveling',
   'Dark World',
   'Loving You Has Taken Over',
-  'My Fellow Man',
-  'Possibility'
+  
 ];
 
 // Album Covers
@@ -45,27 +44,10 @@ function loadSong(song) {
   title.innerText = song;
   let albumCover = "";
   console.log(song);
-  audio.src = `music/${song}.mp3`;
-  if (
-    song == "01 Burning In Carolina" ||
-    song == "02 Take Me There" ||
-    song == "03 Any Better Than This" ||
-    song == "04 Stronger Than A Lion" ||
-    song == "05 No One Will Miss Me" ||
-    song == "06 Back To The Garden" ||
-    song == "07 Only In America" ||
-    song == "08 From One Woman To Another" ||
-    song == "09 If I'd Known I Loved Her" ||
-    song == "10 Danced Right Out Of My Arms" ||
-    song == "11 Soft Place To Land" ||
-    song == "12 The Wrong Ocean"
-  ) {
-    albumCover = "thelight";
-  }  else {
-    albumCover = "thefirstdecade";
-  }
+  audio.src = `music/${song}.m4a`;
+  
   //   console.log(albumCover);
-  cover.src = `images/${albumCover}.jpg`;
+  cover.src = `images/squireCribbs.jpg`;
 }
 
 // Play song

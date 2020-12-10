@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Squire Cribbs</title>
+    <link rel="shortcut icon" type="image/png" href="images/squireCribbs.jpg" />
+    <link
+      href="//db.onlinewebfonts.com/c/ae5af7ed292187888511abe838ae91dd?family=VirginiaMediumW00-Regular"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <h1 class="titleText">Squire Cribbs</h1>
+    <div class="music-container" id="music-container">
+      <div class="music-info">
+        <h4 id="title"></h4>
+        <div class="progress-container" id="progress-container">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
+      <audio src="music/02 Lady.m4a" id="audio"></audio>
+      <div class="img-container">
+        <img src="images/squireCribbs.jpg" alt="music-cover" id="cover" />
+      </div>
+      <div class="navigation">
+        <button id="prev" class="action-btn">
+          <i class="fas fa-backward"></i>
+        </button>
+        <button id="play" class="action-btn action-btn-big">
+          <i class="fas fa-play"></i>
+        </button>
+        <button id="next" class="action-btn">
+          <i class="fas fa-forward"></i>
+        </button>
+        <button id="shuffle" class="action-btn">
+          <i class="fas fa-random"></i>
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

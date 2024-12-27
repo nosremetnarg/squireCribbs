@@ -1,18 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-@import url("//db.onlinewebfonts.com/c/ae5af7ed292187888511abe838ae91dd?family=VirginiaMediumW00-Regular");
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('//db.onlinewebfonts.com/c/ae5af7ed292187888511abe838ae91dd?family=VirginiaMediumW00-Regular');
 @font-face {
-  font-family: "VirginiaMediumW00-Regular";
-  src: url("//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.eot");
-  src: url("//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.eot?#iefix")
-      format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.woff2")
-      format("woff2"),
-    url("//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.woff")
-      format("woff"),
-    url("//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.ttf")
-      format("truetype"),
-    url("//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.svg#VirginiaMediumW00-Regular")
-      format("svg");
+  font-family: 'VirginiaMediumW00-Regular';
+  src: url('//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.eot');
+  src: url('//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.eot?#iefix')
+      format('embedded-opentype'),
+    url('//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.woff2')
+      format('woff2'),
+    url('//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.woff')
+      format('woff'),
+    url('//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.ttf')
+      format('truetype'),
+    url('//db.onlinewebfonts.com/t/ae5af7ed292187888511abe838ae91dd.svg#VirginiaMediumW00-Regular')
+      format('svg');
 }
 
 * {
@@ -25,17 +25,23 @@ body {
     rgba(247, 247, 247, 1) 23.8%,
     rgba(252, 221, 221, 1) 92%
   );
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Lato", sans-serif;
-  margin: 0;
+  font-family: 'Lato', sans-serif;
+  margin: 0 0 5rem 0;
 }
-
+.btf-content {
+  display: flex;
+  flex-direction: row;
+}
+.left-content {
+  margin-right: 1rem;
+}
 .titleText {
-  font-family: "VirginiaMediumW00-Regular";
+  font-family: 'VirginiaMediumW00-Regular';
 }
 
 .music-container {
@@ -53,19 +59,6 @@ body {
   position: relative;
   width: 110px;
 }
-
-/* circle to make it look like a record */
-/* .img-container::after {
-    content: '';
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    transform: translate(-50%, 50%);
-} */
 
 .img-container img {
   border-radius: 50%;
@@ -157,4 +150,26 @@ body {
   height: 100%;
   width: 0%;
   transition: width 0.1 linear;
+}
+.song-list-container {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+
+  overflow-y: auto;
+}
+
+.song-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.song-item:last-child {
+  border-bottom: none;
+}
+
+.song-item:hover {
+  background-color: #e4e4e4;
 }

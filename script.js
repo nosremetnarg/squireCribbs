@@ -30,7 +30,7 @@ const albumCovers = ['squireCribbs']
 
 // random starting song number
 const randomNumber = Math.floor(Math.random() * songs.length) + 1
-console.log(randomNumber)
+// console.log(randomNumber);
 
 // Keep track of song
 let songIndex = randomNumber
@@ -42,7 +42,7 @@ loadSong(songs[songIndex])
 function loadSong(song) {
   title.innerText = song
   let albumCover = ''
-  console.log(song)
+  //   console.log(song);
   audio.src = `music/${song}.m4a`
 
   //   console.log(albumCover);

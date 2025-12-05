@@ -21,6 +21,7 @@ const songs = [
   '06 Actualize',
   '07 Celebration',
   '08 Traveling',
+  'Bridge of The Naughty Children',
   'Dark World',
   'Loving You Has Taken Over',
 ]

@@ -14,13 +14,13 @@ const cover = document.getElementById('cover')
 
 // Song Titles
 const songs = [
-  '01 Peacock',
-  '02 Lady',
-  '04 Vermont',
-  '05 Possibilities',
-  '06 Actualize',
-  '07 Celebration',
-  '08 Traveling',
+  'Peacock',
+  'Lady',
+  'Vermont',
+  'Possibilities',
+  'Actualize',
+  'Celebration',
+  'Traveling',
   'Bridge of The Naughty Children',
   'Dark World',
   'Loving You Has Taken Over',
@@ -31,7 +31,6 @@ const albumCovers = ['squireCribbs']
 
 // random starting song number
 const randomNumber = Math.floor(Math.random() * songs.length) + 1
-// console.log(randomNumber);
 
 // Keep track of song
 let songIndex = randomNumber
@@ -43,10 +42,7 @@ loadSong(songs[songIndex])
 function loadSong(song) {
   title.innerText = song
   let albumCover = ''
-  //   console.log(song);
   audio.src = `music/${song}.m4a`
-
-  //   console.log(albumCover);
   cover.src = `images/squireCribbs.jpg`
 }
 

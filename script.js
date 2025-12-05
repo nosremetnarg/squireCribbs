@@ -14,23 +14,23 @@ const cover = document.getElementById('cover')
 
 // Song Titles
 const songs = [
-  'Peacock',
-  'Lady',
-  'Vermont',
-  'Possibilities',
   'Actualize',
-  'Celebration',
-  'Traveling',
   'Bridge of The Naughty Children',
+  'Celebration',
   'Dark World',
+  'Lady',
   'Loving You Has Taken Over',
+  'Peacock',
+  'Possibilities',
+  'Traveling',
+  'Vermont',
 ]
 
 // Album Covers
 const albumCovers = ['squireCribbs']
 
 // random starting song number
-const randomNumber = Math.floor(Math.random() * songs.length) + 1
+const randomNumber = Math.floor(Math.random() * songs.length)
 
 // Keep track of song
 let songIndex = randomNumber
@@ -90,7 +90,7 @@ function nextSong() {
 
 // Shuffle song
 function shuffleSong() {
-  let randomNumber = Math.floor(Math.random() * songs.length) + 1
+  let randomNumber = Math.floor(Math.random() * songs.length)
 
   songIndex = randomNumber
 

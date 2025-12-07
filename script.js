@@ -12,38 +12,40 @@ const progressContainer = document.getElementById('progress-container')
 const title = document.getElementById('title')
 const cover = document.getElementById('cover')
 
-// Song Titles
-const songs = [
-  'Actualize',
-  'Bridge of The Naughty Children',
-  'Celebration',
-  'Dark World',
-  'Lady',
-  'Loving You Has Taken Over',
-  'Peacock',
-  'Possibilities',
-  'Traveling',
-  'Vermont',
-]
+const songListContainer = document.getElementById('song-list')
 
-// Album Covers
-const albumCovers = ['squireCribbs']
+// Playlist data
+let songs = []
+let songIndex = 0
 
-// random starting song number
-const randomNumber = Math.floor(Math.random() * songs.length)
+// --- Init player ---
+async function initPlayer() {
+  try {
+    const res = await fetch('songs.json')
+    songs = await res.json()
 
-// Keep track of song
-let songIndex = randomNumber
+    if (!Array.isArray(songs) || songs.length === 0) {
+      console.error('No songs found in songs.json')
+      return
+    }
 
-// Initially load song details into DOM
-loadSong(songs[songIndex])
+    // Pick random starting song
+    songIndex = Math.floor(Math.random() * songs.length)
 
-// Update song details
+    // Load and render
+    loadSong(songs[songIndex])
+    renderSongList()
+  } catch (err) {
+    console.error('Error loading songs.json', err)
+  }
+}
+
+// --- Helpers ---
 function loadSong(song) {
-  title.innerText = song
-  let albumCover = ''
-  audio.src = `music/${song}.m4a`
-  cover.src = `images/squireCribbs.jpg`
+  // song is an object: { title, file }
+  title.innerText = song.title
+  audio.src = `music/${song.file}.m4a`
+  cover.src = 'images/squireCribbs.jpg'
 }
 
 // Play song
@@ -90,14 +92,7 @@ function nextSong() {
 
 // Shuffle song
 function shuffleSong() {
-  let randomNumber = Math.floor(Math.random() * songs.length)
-
-  songIndex = randomNumber
-
-  if (songIndex > songs.length - 1) {
-    songIndex = 0
-  }
-
+  songIndex = Math.floor(Math.random() * songs.length)
   loadSong(songs[songIndex])
   playSong()
 }
@@ -118,42 +113,14 @@ function setProgress(e) {
   audio.currentTime = (clickX / width) * duration
 }
 
-// Event listeners
-playBtn.addEventListener('click', () => {
-  const isPlaying = musicContainer.classList.contains('play')
-
-  if (isPlaying) {
-    pauseSong()
-  } else {
-    playSong()
-  }
-})
-
-// Change song
-prevBtn.addEventListener('click', prevSong)
-nextBtn.addEventListener('click', nextSong)
-shuffleBtn.addEventListener('click', shuffleSong)
-
-// Time/song update
-audio.addEventListener('timeupdate', updateProgress)
-
-// Click on progress bar
-progressContainer.addEventListener('click', setProgress)
-
-// Song Ends
-audio.addEventListener('ended', nextSong)
-
-const songListContainer = document.getElementById('song-list')
-
+// Render clickable song list
 function renderSongList() {
   songListContainer.innerHTML = ''
 
   songs.forEach((song, index) => {
     const songItem = document.createElement('div')
     songItem.classList.add('song-item')
-    songItem.innerHTML = `
-      <p>${index + 1}. ${song}</p>
-    `
+    songItem.innerHTML = `<p>${index + 1}. ${song.title}</p>`
 
     songItem.addEventListener('click', () => {
       songIndex = index
@@ -165,4 +132,24 @@ function renderSongList() {
   })
 }
 
-renderSongList()
+// --- Event listeners ---
+playBtn.addEventListener('click', () => {
+  const isPlaying = musicContainer.classList.contains('play')
+
+  if (isPlaying) {
+    pauseSong()
+  } else {
+    playSong()
+  }
+})
+
+prevBtn.addEventListener('click', prevSong)
+nextBtn.addEventListener('click', nextSong)
+shuffleBtn.addEventListener('click', shuffleSong)
+
+audio.addEventListener('timeupdate', updateProgress)
+progressContainer.addEventListener('click', setProgress)
+audio.addEventListener('ended', nextSong)
+
+// --- Kick things off ---
+initPlayer()

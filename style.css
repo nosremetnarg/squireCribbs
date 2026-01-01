@@ -53,6 +53,13 @@ body {
   margin: 100px 0;
   z-index: 10;
 }
+.video-container {
+  display: flex;
+  flex-direction: column;
+}
+.video-container iframe {
+  margin-bottom: 1rem;
+}
 
 .img-container {
   position: relative;
@@ -151,7 +158,6 @@ body {
   transition: width 0.1 linear;
 }
 .song-list-container {
-  margin-top: 20px;
   padding: 10px;
   background-color: #f4f4f4;
   border-radius: 8px;
@@ -171,4 +177,27 @@ body {
 
 .song-item:hover {
   background-color: #e4e4e4;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 600px) {
+  .video-container iframe {
+    width: 100%;
+  }
+  .video-container {
+    margin-top: 1rem;
+  }
+  .btf-content {
+    flex-direction: column;
+  }
+  .music-container {
+    flex-direction: column;
+    margin: 100px 0px 30px 0px;
+  }
+  .action-btn {
+    margin: 0 10px;
+  }
+  .left-content {
+    margin-right: 0px;
+  }
 }
